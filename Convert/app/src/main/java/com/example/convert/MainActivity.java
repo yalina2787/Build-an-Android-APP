@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     EditText editText_km;
     EditText editText_m;
     String flag = "km";
+    SharedPreferences prefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +31,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         convertButton.setOnClickListener(this);
         editText_km.setOnKeyListener(this);
         editText_m.setOnKeyListener(this);
+       
+        prefs = this.getSharedPreferences(
+                "com.example.convert", Context.MODE_PRIVATE);
+
+        float km = prefs.getFloat("store_km", 0);
+        editText_km.setText(km+"");
+
+        float m = prefs.getFloat("store_m", 0);
+        editText_m.setText(m+"");
     }
 
 
@@ -60,7 +70,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             dataKm = dataM/1000;
             editText_km.setText(dataKm + "");
         }
-
+        
+        prefs.edit().putFloat("store_km", dataKm).apply();
+        prefs.edit().putFloat("store_m", dataM).apply();
 
     }
 
