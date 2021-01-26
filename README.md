@@ -6,3 +6,4 @@
 #### Layouts file contains source code for coding different layouts such as linear layout and relative layout.
 #### PlayAndPauseSounds file contains source code of operating two button 'Play' and 'Pause', and a Switch 'looping'.
 #### WebPages file contains source code of displaying several webpages on the application without opening a browser.
+#### TwoActivities file displays how to use the rating bar and go to the second activity while clicking the button in the first activity.
